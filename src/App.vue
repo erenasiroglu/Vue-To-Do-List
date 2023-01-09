@@ -1,13 +1,14 @@
 <template>
-  <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view/>
-  </div>
+  <v-app>
+    <div id="app">
+      <nav>
+        <router-link to="/">Home</router-link> |
+        <router-link to="/about">About</router-link>
+      </nav>
+      <router-view />
+    </div>
+  </v-app>
 </template>
-
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -30,3 +31,14 @@ nav {
   }
 }
 </style>
+<script lang="ts">
+import Vue from "vue";
+
+export default Vue.extend({
+  name: "App",
+
+  data: () => ({
+    //
+  }),
+});
+</script>
