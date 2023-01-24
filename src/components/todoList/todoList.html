@@ -1,0 +1,28 @@
+<div class="todo-list">
+  <v-row>
+    <v-col cols="10">
+      <v-text-field
+        color="white"
+        v-model="todoInput"
+        @keyup.enter="addTodo()"
+        placeholder="Enter a todo..."
+      />
+    </v-col>
+    <v-col cols="2">
+      <v-btn class="text-black" small color="primary" @click="addTodo()"
+        >Add</v-btn
+      >
+    </v-col>
+  </v-row>
+  <ul>
+    <li v-for="(todo, index) in todos" :key="index">
+      {{ todo }}
+      <v-btn icon @click="deleteTodo(index)">
+        <v-icon>mdi-trash-can</v-icon>
+      </v-btn>
+      <v-btn icon @click="completeTodo(index)">
+        <v-icon>mdi-check</v-icon>
+      </v-btn>
+    </li>
+  </ul>
+</div>

@@ -7,11 +7,44 @@
         indeterminate
       ></v-progress-linear>
     </div>
+
     <v-img
-      height="250"
+      height="100"
       src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
     ></v-img>
     <v-card-title>{{title}}</v-card-title>
     <v-card-text> {{text}} </v-card-text>
+    <h1>{{firstName}}</h1>
   </v-card>
 </div>
+
+<!-- <template>
+  <div class="home">
+    <div v-for="i in inputValue" :key="i">
+      <cardCreate :title="homeViewTitle" :text="homeViewText"></cardCreate>
+    </div>
+    <v-app class="ma-16" style="position: absolute; top: 0; left: 0">
+      <v-content>
+        <v-row>
+          <v-col>
+            <v-text-field
+              label="Enter Number"
+              v-model.number="inputValue"
+              type="number"
+            ></v-text-field>
+            <h4>{{ counter }}</h4>
+            <v-btn
+              class="mx-2"
+              fab
+              dark
+              color="indigo"
+              @click="calculateCounter()"
+            >
+              <v-icon dark> mdi-plus </v-icon>
+            </v-btn>
+          </v-col>
+        </v-row>
+      </v-content>
+    </v-app>
+  </div> -->
+</template>

@@ -1,19 +1,17 @@
 <template>
   <div class="home">
-    <cardCreate :title="homeViewTitle" :text="homeViewText"></cardCreate>
+    <todo-list></todo-list>
   </div>
 </template>
+
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import cardCreate from "@/components/cardCreate/cardCreate.vue";
+import todoList from "@/components/todoList/todoList.vue";
 
 @Component({
   components: {
-    cardCreate,
+    todoList,
   },
 })
-export default class HomeView extends Vue {
-  public homeViewTitle = "title";
-  public homeViewText = "text";
-}
+export default class HomeView extends Vue {}
 </script>
