@@ -1,10 +1,7 @@
 <template>
   <v-app>
     <div id="app">
-      <nav>
-        <router-link to="/">Home</router-link> |
-        <router-link to="/about">About</router-link>
-      </nav>
+      <nav></nav>
       <router-view />
     </div>
   </v-app>

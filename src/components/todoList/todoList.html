@@ -15,14 +15,24 @@
     </v-col>
   </v-row>
   <ul>
-    <li v-for="(todo, index) in todos" :key="index">
-      {{ todo }}
-      <v-btn icon @click="deleteTodo(index)">
-        <v-icon>mdi-trash-can</v-icon>
-      </v-btn>
-      <v-btn icon @click="completeTodo(index)">
-        <v-icon>mdi-check</v-icon>
-      </v-btn>
+    <li v-for="todo, index in todos" :key="index">
+      <template v-if="editingIndex !== index">
+        <div v-html="todo" @dblclick="editTodo(index)"></div>
+        <div>
+          <v-btn icon @click="editTodo(index)">
+            <v-icon>mdi-pencil</v-icon>
+          </v-btn>
+          <v-btn icon @click="deleteTodo(index)">
+            <v-icon>mdi-trash-can</v-icon>
+          </v-btn>
+          <v-btn icon @click="completeTodo(index)">
+            <v-icon>mdi-check</v-icon>
+          </v-btn>
+        </div>
+      </template>
+      <template v-else>
+        <v-text-field v-model="todos[index]" @keyup.enter="editingIndex = -1" />
+      </template>
     </li>
   </ul>
 </div>
