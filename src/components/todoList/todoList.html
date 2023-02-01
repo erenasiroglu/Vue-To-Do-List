@@ -1,47 +1,49 @@
-<div class="todo-list">
-  <v-row class="todo-list__row">
-    <v-col cols="10" class="todo-list__col-10">
-      <v-text-field
-        color="white"
-        v-model="todoInput"
-        @keyup.enter="addTodo()"
-        placeholder="Enter a todo..."
-        class="todo-list__text-field"
-      />
-    </v-col>
-    <v-col cols="2" class="todo-list__col-2">
-      <v-btn
-        class="todo-list__add-btn text-black"
-        small
-        color="primary"
-        @click="addTodo()"
-        >Add</v-btn
-      >
-    </v-col>
-  </v-row>
-  <ul class="todo-list__list">
-    <li v-for="(todo, index) in todos" :key="index">
-      <div v-html="todo" @dblclick="editTodo(index) "></div>
-      <div>
-        <v-btn icon @click="editTodo(index)" class="todo-list__edit-btn">
-          <v-icon>mdi-pencil</v-icon>
-        </v-btn>
-        <v-btn icon @click="deleteTodo(index)" class="todo-list__delete-btn">
-          <v-icon>mdi-trash-can</v-icon>
-        </v-btn>
+<body>
+  <div class="todo-list">
+    <v-row class="todo-list__row">
+      <v-col cols="10" class="todo-list__col">
+        <v-text-field
+          color="white"
+          v-model="todoInput"
+          @keyup.enter="addTodo()"
+          placeholder="Enter a todo..."
+          class="todo-list__text-field"
+        />
+      </v-col>
+      <v-col cols="2" class="todo-list__col">
         <v-btn
-          icon
-          @click="completeTodo(index)"
-          class="todo-list__complete-btn"
+          class="todo-list__add-btn text-black"
+          small
+          color="primary"
+          @click="addTodo()"
+          >Add</v-btn
         >
-          <v-icon>mdi-check</v-icon>
-        </v-btn>
-      </div>
-      <v-text-field
-        v-model="todos[index]"
-        v-if="editingIndex === index"
-        @keyup.enter="editingIndex = -1"
-      />
-    </li>
-  </ul>
-</div>
+      </v-col>
+    </v-row>
+    <ul class="todo-list__list">
+      <li v-for="(todo, index) in todos" :key="index">
+        <div v-html="todo" @dblclick="editTodo(index) "></div>
+        <div>
+          <v-btn icon @click="editTodo(index)" class="todo-list__edit-btn">
+            <v-icon>mdi-pencil</v-icon>
+          </v-btn>
+          <v-btn icon @click="deleteTodo(index)" class="todo-list__delete-btn">
+            <v-icon>mdi-trash-can</v-icon>
+          </v-btn>
+          <v-btn
+            icon
+            @click="completeTodo(index)"
+            class="todo-list__complete-btn"
+          >
+            <v-icon>mdi-check</v-icon>
+          </v-btn>
+        </div>
+        <v-text-field
+          v-model="todos[index]"
+          v-if="editingIndex === index"
+          @keyup.enter="editingIndex = -1"
+        />
+      </li>
+    </ul>
+  </div>
+</body>
