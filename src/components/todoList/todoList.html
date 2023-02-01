@@ -1,38 +1,47 @@
 <div class="todo-list">
-  <v-row>
-    <v-col cols="10">
+  <v-row class="todo-list__row">
+    <v-col cols="10" class="todo-list__col-10">
       <v-text-field
         color="white"
         v-model="todoInput"
         @keyup.enter="addTodo()"
         placeholder="Enter a todo..."
+        class="todo-list__text-field"
       />
     </v-col>
-    <v-col cols="2">
-      <v-btn class="text-black" small color="primary" @click="addTodo()"
+    <v-col cols="2" class="todo-list__col-2">
+      <v-btn
+        class="todo-list__add-btn text-black"
+        small
+        color="primary"
+        @click="addTodo()"
         >Add</v-btn
       >
     </v-col>
   </v-row>
-  <ul>
-    <li v-for="todo, index in todos" :key="index">
-      <template v-if="editingIndex !== index">
-        <div v-html="todo" @dblclick="editTodo(index)"></div>
-        <div>
-          <v-btn icon @click="editTodo(index)">
-            <v-icon>mdi-pencil</v-icon>
-          </v-btn>
-          <v-btn icon @click="deleteTodo(index)">
-            <v-icon>mdi-trash-can</v-icon>
-          </v-btn>
-          <v-btn icon @click="completeTodo(index)">
-            <v-icon>mdi-check</v-icon>
-          </v-btn>
-        </div>
-      </template>
-      <template v-else>
-        <v-text-field v-model="todos[index]" @keyup.enter="editingIndex = -1" />
-      </template>
+  <ul class="todo-list__list">
+    <li v-for="(todo, index) in todos" :key="index">
+      <div v-html="todo" @dblclick="editTodo(index) "></div>
+      <div>
+        <v-btn icon @click="editTodo(index)" class="todo-list__edit-btn">
+          <v-icon>mdi-pencil</v-icon>
+        </v-btn>
+        <v-btn icon @click="deleteTodo(index)" class="todo-list__delete-btn">
+          <v-icon>mdi-trash-can</v-icon>
+        </v-btn>
+        <v-btn
+          icon
+          @click="completeTodo(index)"
+          class="todo-list__complete-btn"
+        >
+          <v-icon>mdi-check</v-icon>
+        </v-btn>
+      </div>
+      <v-text-field
+        v-model="todos[index]"
+        v-if="editingIndex === index"
+        @keyup.enter="editingIndex = -1"
+      />
     </li>
   </ul>
 </div>
