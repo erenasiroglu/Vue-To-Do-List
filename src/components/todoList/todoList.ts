@@ -1,4 +1,5 @@
 import { Vue, Component, Prop } from "vue-property-decorator";
+
 @Component
 export default class TodoList extends Vue {
   @Prop({ default: () => [] }) todos!: string[];
